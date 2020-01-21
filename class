@@ -1,0 +1,58 @@
+#1
+class Cat():
+    name = ""
+    weight = 0
+    color = ""
+    def meow(self):
+        print("Meow")
+myCat = Cat()
+myCat.name = "Barsik"
+myCat.weight = 3
+myCat.color = "Black"
+myCat.meow()
+
+#2
+
+
+
+
+#3
+class Monster():
+    name = ""
+    health = 0
+    def decreaseHealth(self, amount):
+        while True:
+            self.health -= amount
+            if self.health <= 0:
+                print("Ogre Died!")
+                break
+            else:
+                print("The Ogre has left",self.health,"HP")
+monster = Monster()
+monster.name = "Ogre" 
+monster.health = 100
+monster.decreaseHealth(20)
+
+'''------3------'''
+from random import randint
+ 
+class Warriror:
+	health = 100
+    def __init__(self, name):
+        self.name = name
+        
+def kick(firstkick):
+    if firstkick == 1:
+        warrior2.health -= 20
+        print("Удар ",warrior1.name, "Осталось у другого воина ")
+
+ 
+ 
+war_1 = Warriror()
+war_2 = Warriror()
+while war_2.health > 0 and war_1.health > 0:
+	count = random.random()
+	if count > 0.5:
+		print('Атаковал Воин 1. У Воина 2 осталось', war_1.hit(war_2), "HP")
+	else:
+		print('Атаковал Воин 2. У Воина 1 осталось', war_2.hit(war_1), "HP")
