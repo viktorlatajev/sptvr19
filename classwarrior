@@ -1,0 +1,103 @@
+"""Модуль содержит классы воинов"""
+import random
+import time
+class Warrior():
+    """Класс WARRIOR.
+Конструктор принимает имена, расу и возраст"""
+    def __init__ (self, name, age, race):
+       
+        self.name = name
+        self.age = age
+        self.race = race
+        self.healthy = 100
+        self.unhealthy = 20
+       
+    def info(self):
+        """Инструкция для вывода характеристик воина."""
+        time.sleep(0.6)
+        print( "Имя: " + self.name )
+        time.sleep(0.8)
+        print( "Возраст: " + str( self.age ) )
+        time.sleep(0.7)
+        print( "Раса: " + self.race )
+        time.sleep(0.8)
+        print( "Здоровье: " + str( self.healthy ) )
+        time.sleep(0.6)
+        print()
+           
+
+    def fight(self):
+        
+        """Инструкция для вычисления случайного удара."""
+        rando = random.randint(1,2)
+        x = rando
+        
+        if x == 1:
+            print( "--------------------FIGHT--------------------" )
+            time.sleep(0.6)
+            print( warr1.name, ", бьёт игрока:", warr2.name )
+            time.sleep(0.7)
+            print( "Удар" )
+            time.sleep(0.9)
+            print( "Удар" )
+            time.sleep(0.6)
+            print( "Удар" )
+            warr2.healthy -= self.unhealthy
+            time.sleep(0.8)
+            print( "HP " + warr2.name + " отнялось на: " + str( self.unhealthy ) )
+            print()
+            time.sleep(0.7)
+            print( "Текущее HP " + warr2.name + ": " + str( warr2.healthy ) )
+            print( "---------------------------------------------" )
+            time.sleep(0.6)
+            
+            if warr2.healthy == 0:
+                print("HP игрока " + warr2.name + " закончилось!")
+                time.sleep(0.7)
+                print()
+                time.sleep(0.7)
+                print("Победил: " + warr1.name + " с кол-вом HP: " + str( warr1.healthy ) )
+                time.sleep(0.7)
+                print()
+                print("Нажмите \"ENTER\" чтобы выйти.")
+                input()
+                exit()
+               
+        elif x == 2:
+            print( "--------------------FIGHT--------------------" )
+            time.sleep(0.6)
+            print( warr2.name , "бьёт игрока:" , warr1.name )
+            time.sleep(0.7)
+            print( "Удар" )
+            time.sleep(0.9)
+            print( "Удар" )
+            time.sleep(0.6)
+            print( "Удар" )
+            warr1.healthy -= self.unhealthy
+            time.sleep(0.8)
+            print( "HP " + warr1.name + " отнялось на: " + str( self.unhealthy ) )
+            print()
+            time.sleep(0.7)
+            print( "Текущее HP " + warr1.name + ": " + str( warr1.healthy ) )
+            print( "---------------------------------------------" )
+            time.sleep(0.6)
+
+            if warr1.healthy == 0:
+                print("HP игрока " + warr1.name + " закончилось!")
+                time.sleep(0.7)
+                print()
+                time.sleep(0.7)
+                print("Победил: " + warr2.name + " с кол-вом HP: " + str( warr2.healthy ) )
+                time.sleep(0.7)
+                print()
+                print("Нажмите \"ENTER\" чтобы завершить сеанс.")
+                input()
+                exit()
+        else:
+            print("Ты дэбил?")
+            exit()
+           
+"""Входные данные"""        
+warr1 = Warrior( "Витёк", 16, "Ровный пацан" )
+warr2 = Warrior( "Гопник", 18, "Чёрт из подворотни" )
+"""Напиши warr1.fight() или warr2.fight()""" 
