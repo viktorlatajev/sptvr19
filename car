@@ -1,0 +1,47 @@
+import pygame
+FPS = 120
+W = 700 # ширина экрана
+H = 700 # высота экрана
+WHITE = (255, 255, 255)
+BLUE = (0, 70, 225)
+d = "RIGHT"
+a = "LEFT"
+w = "UP"
+s = "DOWN"
+STOP = "stop"
+pygame.init()
+sc = pygame.display.set_mode((W, H))
+sc.fill(WHITE)
+car_surf_main = pygame.image.load('car.bmp')
+new_car = pygame.transform.scale(car_surf_main, (150, 150))
+car_surf = car_surf_main
+car_rect = car_surf_main.get_rect(center=(700, 700))
+sc.blit(new_car, car_rect)
+
+pygame.display.update()
+
+clock = pygame.time.Clock()
+# координаты и радиус круга
+x = W // 2
+y = H // 2
+r = 50
+motion = STOP
+run = True
+while run:
+    sc.fill(WHITE)
+    
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+            pygame.quit()
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a] and x > 5 or keys[pygame.K_LEFT] and x > 5:
+        x -= 3
+    if keys[pygame.K_d] and x < 695 or keys[pygame.K_RIGHT] and x < 695:
+        x += 3
+    if keys[pygame.K_w] and y > 5 or keys[pygame.K_UP] and y > 5:
+        y -= 3
+    if keys[pygame.K_s] and y < 695 or keys[pygame.K_DOWN] and y < 695:
+        y += 3
+    clock.tick(FPS)
