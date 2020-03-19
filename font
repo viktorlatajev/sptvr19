@@ -1,0 +1,34 @@
+import pygame
+
+FPS = 120
+
+WHITE = (255,255,255)
+BLUE = (65, 105, 225)
+BLACK = (0, 0, 0)
+
+pygame.init()
+sc = pygame.display.set_mode((500, 500))
+clock = pygame.time.Clock()
+pygame.mouse.set_visible(False)
+font = pygame.font.Font(pygame.font.match_font('arial'), 20)
+ 
+while True:
+    for i in pygame.event.get():
+        if i.type == pygame.QUIT:
+            pygame.quit()
+ 
+ 
+    x = pygame.mouse.get_pos()[0]
+    y = pygame.mouse.get_pos()[1]
+    sc.fill((WHITE))
+    pygame.draw.rect(sc, (BLUE), (100, 100, 100, 100))
+    pygame.draw.rect(sc, (BLACK), (x, y, 30, 30))
+    if 170 > x > 100 and 170 > y > 100:
+        text = font.render('Здравствуйте Мария Сергеевна', 1, (0, 255, 0))
+        sc.blit(text, (125, 250))
+    
+    clock.tick(FPS)
+    
+    pygame.display.update()
+    
+    pygame.time.delay(20)
